@@ -1,22 +1,23 @@
-import array
 import tkinter as tk
 from tkinter import messagebox
 from button import button
+import os
 
 app = tk.Tk()
 app.title("powermenu")
 app.resizable(False, False)
 
 def on_click_off_btn():
-    if messagebox.askyesno(message="¿Esta seguro que quiere apagar el equipo?", title="Apagar"):
-        app.quit()
+    if messagebox.askyesno(message = "¿Esta seguro que quiere apagar el equipo?", title = "Apagar"):
+        os.system("shutdown now")
 
 def on_click_restart_btn():
-    if messagebox.askyesno(message="¿Esta seguro que quiere reiniciar el equipo?", title="Reiniciar"):
-        app.quit()
+    if messagebox.askyesno(message = "¿Esta seguro que quiere reiniciar el equipo?", title = "Reiniciar"):
+        os.system("reboot")
 
 def on_click_logout_btn():
-    print("hola")
+    if messagebox.askyesno(message = "¿Esta seguro que quiere cerrar la sesion?", title = "Cerrar sesion"):
+        os.system("i3-msg exit")
 
 off_btn : button = button(
     master  = app,
