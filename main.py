@@ -54,6 +54,10 @@ def on_press_keyboard(evt):
 
 app.bind("<Escape>", on_press_keyboard)
 
+def close(evt):
+    app.quit()
+
 app.eval('tk::PlaceWindow . center')
+app.bind("<FocusOut>", close)
 
 app.mainloop()
